@@ -11,7 +11,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     List<Count> data = [
-      Count(icon: Icons.account_balance_rounded,title: "Mathematics"),
+      Count(icon: Icons.account_balance_rounded,title: "Mathema"),
       Count(icon: Icons.add_alert_sharp,title: "Physics"),
       Count(icon: Icons.connected_tv_outlined, title: "Schanchine"),
       Count(icon: Icons.ac_unit_sharp, title: "Chemistic"),
@@ -36,11 +36,15 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.white,
                         elevation: 2.0,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(data[index].icon,color: Colors.grey,size: 30),
-                            Text(data[index].title,style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),],
+                        child: Padding(
+                          padding:  const EdgeInsets.only(left: 5,right: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(data[index].icon,color: Colors.grey,size: 30),
+                              SizedBox(width: 8),
+                              Text(data[index].title,style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),],
+                          ),
                         ),
                     );},
                 )
@@ -56,9 +60,9 @@ class _HomePageState extends State<HomePage> {
                   left: MediaQuery.of(context).size.width / 25,
                   child: Column(
                     children: const[
-                      Text("Learning Material",style: TextStyle(fontSize: 25,color: Colors.white),),
-                      SizedBox(height: 10),
-                      Text("Search for learning Material",style: TextStyle(fontSize: 17,color: Colors.white),)
+                      Text("Learning Material",style: TextStyle(fontSize: 30,color: Colors.white),),
+                      SizedBox(height: 5),
+                      Text("Search for learning Material",style: TextStyle(fontSize: 20,color: Colors.white),)
                     ],
                   )
               ),
@@ -79,15 +83,16 @@ class _HomePageState extends State<HomePage> {
 
               // Search Textfield
               Positioned(
-                width: MediaQuery.of(context).size.width / 1.25,
+                width: MediaQuery.of(context).size.width / 1.15,
                 top: MediaQuery.of(context).size.height /2.8,
-                left: MediaQuery.of(context).size.width / 10,
+                height: MediaQuery.of(context).size.height / 15,
+                left: MediaQuery.of(context).size.width / 16,
                 child: TextField(
-                  decoration: InputDecoration(hintText: 'Search for terms like "Geometri"',
+                  decoration: InputDecoration(hintText: 'Search for terms like "Geometric"',
                       prefixIcon: const Icon(Icons.search),
                       fillColor: Colors.white,filled: true,
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-                    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(30))
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+                    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(25))
                   ),
                 ),
               ),

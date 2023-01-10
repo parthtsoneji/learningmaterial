@@ -71,10 +71,10 @@ class _FormPageState extends State<FormPage> {
                   child: Column(
                     children: const [
                       Text("Position Material",
-                        style: TextStyle(fontSize: 25, color: Colors.white),),
-                      SizedBox(height: 10,),
+                        style: TextStyle(fontSize: 30, color: Colors.white),),
+                      SizedBox(height: 5),
                       Text("Search for Position Material",
-                        style: TextStyle(fontSize: 17, color: Colors.white),),
+                        style: TextStyle(fontSize: 20, color: Colors.white),),
                       ],
                     )),
 
@@ -129,8 +129,8 @@ class _FormPageState extends State<FormPage> {
                                         itemBuilder: (context, index) => const
                                         Icon(
                                           Icons.star,color: Colors.yellow,),
-                                        onRatingUpdate: (rating) {
-                                          print(rating);
+                                          onRatingUpdate: (rating) {
+                                            print(rating);
                                           },
                                       ),
                                       Text(
