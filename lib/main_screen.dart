@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: pageList[index],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.white70,
         unselectedItemColor:  Colors.white,
         currentIndex: index,
                 onTap: (value) {
@@ -38,13 +38,17 @@ class _MainPageState extends State<MainPage> {
         selectedItemColor: Colors.blue,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_balance), label: "Lessons"),
+              icon: Icon(Icons.account_balance,color: Colors.black45,),
+              label: "Lessons"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_chart_outlined), label: "Plateform"),
+              icon: Icon(Icons.add_chart_outlined,color: Colors.black45,),
+              label: "PLatform"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_balance_wallet_rounded), label: "Cover"),
+              icon: Icon(Icons.account_balance_wallet_rounded,color: Colors.black45,),
+              label: "Cover"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_sharp), label: "Account"),
+              icon: Icon(Icons.account_circle_sharp,color: Colors.black45),
+              label: "Account"),
         ],
       ),
     );

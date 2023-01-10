@@ -35,7 +35,10 @@ class _CoverPageState extends State<CoverPage> {
         //   scrollDirection: Axis.vertical,
         //   children:  ListTile.divideTiles(
         //     context: context, tiles: [
-        //       ListTile(
+    // Padding(
+    // padding: const EdgeInsets.only(top: 380.0,right: 20,left: 20,bottom: 20),
+    // child:
+    //       ListTile(
         //         onTap: () {
         //         },
         //         title: const Text('Demo'),
