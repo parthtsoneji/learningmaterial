@@ -91,8 +91,8 @@ class _HomePageState extends State<HomePage> {
                   decoration: InputDecoration(hintText: 'Search for terms like "Geometric"',
                       prefixIcon: const Icon(Icons.search),
                       fillColor: Colors.white,filled: true,
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-                    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(25))
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(25),borderSide: BorderSide(color: Colors.white)),
+                    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(25),borderSide: BorderSide(color: Colors.white))
                   ),
                 ),
               ),
