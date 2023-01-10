@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/formpage.dart';
-import 'package:learningmaterial/homePage.dart';
-import 'package:learningmaterial/main_screen.dart';
+import 'package:learningmaterial/Model/homePage.dart';
+import 'package:learningmaterial/Model/main_screen.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -9,7 +9,8 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => MainPage(),
-      '/home' : (context) => HomePage()},
+      '/home' : (context) => HomePage(),
+    },
   ));
 }
 

@@ -13,7 +13,6 @@ class _AccountPageState extends State<AccountPage> {
     return Scaffold(
       body: Stack(
         children: [
-
           //  Backgound Image
           Image(image: const AssetImage('images/mainmoon.png'),
             fit: BoxFit.cover,height: MediaQuery.of(context).size.height / 2.5,

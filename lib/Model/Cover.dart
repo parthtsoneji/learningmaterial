@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/homePage.dart';
 
 class CoverPage extends StatefulWidget {
   const CoverPage({Key? key}) : super(key: key);
-
   @override
   State<CoverPage> createState() => _CoverPageState();
 }
-
 class _CoverPageState extends State<CoverPage> {
 
   @override

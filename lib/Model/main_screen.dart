@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/Account.dart';
-import 'package:learningmaterial/Cover.dart';
-import 'package:learningmaterial/formpage.dart';
-import 'package:learningmaterial/homePage.dart';
+import 'package:learningmaterial/Model/Account.dart';
+import 'package:learningmaterial/Model/Cover.dart';
+import 'package:learningmaterial/Model/formpage.dart';
+import 'package:learningmaterial/Model/homePage.dart';
+
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
