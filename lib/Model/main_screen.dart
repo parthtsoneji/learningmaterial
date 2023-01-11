@@ -26,7 +26,7 @@ class _MainPageState extends State<MainPage> {
       body: pageList[index],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white70,
-        unselectedItemColor:  Colors.white,
+        unselectedItemColor:  Colors.black45,
         currentIndex: index,
                 onTap: (value) {
           print(value);
@@ -37,18 +37,19 @@ class _MainPageState extends State<MainPage> {
 
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.blue,
+        unselectedIconTheme: IconThemeData(color: Colors.black45),
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_balance,color: Colors.black45,),
+              icon: Icon(Icons.account_balance),
               label: "Lessons"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_chart_outlined,color: Colors.black45,),
+              icon: Icon(Icons.add_chart_outlined),
               label: "PLatform"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_balance_wallet_rounded,color: Colors.black45,),
+              icon: Icon(Icons.account_balance_wallet_rounded),
               label: "Cover"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_sharp,color: Colors.black45),
+              icon: Icon(Icons.account_circle_sharp),
               label: "Account"),
         ],
       ),

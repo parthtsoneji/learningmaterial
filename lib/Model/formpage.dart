@@ -66,13 +66,14 @@ class _FormPageState extends State<FormPage> {
                   )),
 
               // Headline Text
-              Positioned(top: MediaQuery.of(context).size.height / 3.8,
+              Positioned(top: MediaQuery.of(context).size.height / 4,
                   left: MediaQuery.of(context).size.width / 25,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: const [
                       Text("Position Material",
-                        style: TextStyle(fontSize: 30, color: Colors.white),),
-                      SizedBox(height: 5),
+                        style: TextStyle(fontSize: 32, color: Colors.white),),
+                      SizedBox(height: 2),
                       Text("Search for Position Material",
                         style: TextStyle(fontSize: 20, color: Colors.white),),
                       ],
@@ -80,25 +81,26 @@ class _FormPageState extends State<FormPage> {
 
               //Listview
               Padding(
-                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 2.8,right: 30,left: 30),
+                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 2.8,right: 20,left: 20),
                   child: GridView.builder(itemCount: 4,
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: 2,crossAxisCount: 1,
-                          crossAxisSpacing: 20,mainAxisSpacing: 20),
+                          childAspectRatio: 1.8,crossAxisCount: 1,
+                          crossAxisSpacing: 8,mainAxisSpacing: 8),
                       itemBuilder: (context, index) {
                         return Card(
                           color: Colors.white,
-                          elevation: 5.0,
+                          elevation: 1.0,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0)),
+                              borderRadius: BorderRadius.circular(6.0)),
                           child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
 
                                 // text and image
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      top: 5, left: 10, right: 10),
+                                      top: 5, left: 10, right: 13),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
@@ -106,11 +108,11 @@ class _FormPageState extends State<FormPage> {
                                         list[index].tegline,
                                         style: const TextStyle(
                                             fontSize: 20,fontWeight: FontWeight.bold,
-                                            color: Colors.black),),
+                                            color: Colors.black87),),
                                       Image.asset(
                                         list[index].image,
-                                        height: 40,
-                                        width: 40,)],
+                                        height: 50,
+                                        width: 50,)],
                                   ),
                                 ),
 
@@ -156,8 +158,7 @@ class _FormPageState extends State<FormPage> {
                                         child: Center(
                                           child: Text(
                                             list[index].payment,
-                                            style: const TextStyle(color: Colors.white,
-                                                fontWeight: FontWeight.bold,fontSize: 15),
+                                            style: const TextStyle(color: Colors.white,fontSize: 15),
                                           ),
                                         ),
                                       ),
