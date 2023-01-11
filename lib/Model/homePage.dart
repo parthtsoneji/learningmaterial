@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
                 padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height / 2.3,right: 23,left: 23),
                 child: GridView.builder(itemCount: data.length,gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   childAspectRatio: 2,crossAxisCount: 2,
-                  crossAxisSpacing: 6,mainAxisSpacing: 6,mainAxisExtent: 70),
+                  crossAxisSpacing: 8,mainAxisSpacing: 8),
                   itemBuilder: (context, index) {
                     return Card(
                         color: Colors.white,
