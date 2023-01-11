@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
       Count(icon: Icons.military_tech, title: "Phycology"),
       Count(title: "10+ More", icon: Icons.ac_unit_sharp)
     ];
-    final maxline = 1;
     return Scaffold(
       body:
        Stack(
@@ -61,7 +60,7 @@ class _HomePageState extends State<HomePage> {
               Positioned(top: MediaQuery.of(context).size.height / 4,
                   left: MediaQuery.of(context).size.width / 25,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text("Learning Material",style: TextStyle(fontSize: 30,color: Colors.white)),
                       SizedBox(height: 2),

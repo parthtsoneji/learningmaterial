@@ -69,7 +69,7 @@ class _FormPageState extends State<FormPage> {
               Positioned(top: MediaQuery.of(context).size.height / 4,
                   left: MediaQuery.of(context).size.width / 25,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text("Position Material",
                         style: TextStyle(fontSize: 32, color: Colors.white),),
