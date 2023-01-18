@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import "package:flutter_rating_bar/flutter_rating_bar.dart";
 
 class FormPage extends StatefulWidget {
   const FormPage({Key? key}) : super(key: key);
@@ -16,26 +16,26 @@ class _FormPageState extends State<FormPage> {
           image: "images/anton.png",
           rating: "4.5",
           payment: "FREE",
-          decr: "Lorem Lpsum is simply dummy text of te printing and typsetting industry. lorem lpsum has been the industrys standard dummy text ever since the 1500s"),
+          decr: "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s"),
       Test(tegline: "BetterMarks",
           image: "images/symball.png",
           rating: "1.5",
           payment: "PAID",
-          decr: "Lorem Lpsum is simply dummy text of te printing and typsetting industry. lorem lpsum has been the industrys standard dummy text ever since the 1500s"),
-      Test(tegline: "Testomony",
+          decr: "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s"),
+      Test(tegline: "Testimony",
           image: "images/symball.png",
           rating: "3.5",
           payment: "PAID",
-          decr: "Lorem Lpsum is simply dummy text of te printing and typsetting industry. lorem lpsum has been the industrys standard dummy text ever since the 1500s"),
-      Test(tegline: "Exaclwork",
+          decr: "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s"),
+      Test(tegline: "Lacework",
           image: "images/symball.png",
           rating: "2.5",
           payment: "FREE",
-          decr: "Lorem Lpsum is simply dummy text of te printing and typsetting industry. lorem lpsum has been the industrys standard dummy text ever since the 1500s")];
+          decr: "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s")];
     return Scaffold(
         body: Stack(
             children: [
-              //Backgound Image
+              //Background Image
               Image(image: const AssetImage('images/mainmoon.png'),
                 fit: BoxFit.cover, height: MediaQuery.of(context).size.height / 2.5,
                 width: MediaQuery.of(context).size.width,),
@@ -123,7 +123,6 @@ class _FormPageState extends State<FormPage> {
                                           Icon(
                                             Icons.star,color: Colors.yellow,),
                                             onRatingUpdate: (rating) {
-                                              print(rating);
                                             },
                                         ),
                                         Text(

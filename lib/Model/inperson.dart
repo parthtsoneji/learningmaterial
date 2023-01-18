@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/Model/detail_screen.dart';
+import 'package:learningmaterial/Model/main_screen.dart';
 
 class InPersonPage extends StatefulWidget {
   const InPersonPage({Key? key}) : super(key: key);
+  static Person? dataList;
 
   @override
   State<InPersonPage> createState() => _InPersonPageState();
 }
 
 class _InPersonPageState extends State<InPersonPage> {
+
+  // In Person data
   List<Person> inper = [
     Person(
         image: 'images/thumb.png',
@@ -26,12 +29,15 @@ class _InPersonPageState extends State<InPersonPage> {
         icons: Icons.add_circle)
   ];
 
+
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         body: Stack(
       children: [
-        // GridView
+        // ListView Builder
         Padding(
           padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
           child: SizedBox(
@@ -39,13 +45,19 @@ class _InPersonPageState extends State<InPersonPage> {
             child: ListView.builder(
               itemCount: inper.length,
               itemBuilder: (context,index) {
-                Person data = inper[index];
+                InPersonPage.dataList  = inper[index];
+
+                //return to Account Page
                 return GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(
-                          builder:  (context) => DetailPage(data: data)));
+                    setState(() {
+                      MainPage.controller.add(true);
+                    });
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(
+                    //       builder:  (context) => DetailPage(data: data)));
                   },
+                  // Listview Design
                   child: Card(
                     margin: const EdgeInsets.only(bottom: 15),
                     elevation: 5.0,
@@ -67,7 +79,7 @@ class _InPersonPageState extends State<InPersonPage> {
                                 padding: const EdgeInsets.only(left: 15, top: 15),
                                 child: CircleAvatar(
                                   backgroundImage: AssetImage(
-                                    data.image,
+                                    inper[index].image,
                                   ),
                                   radius: 25,
                                 ),
@@ -82,7 +94,7 @@ class _InPersonPageState extends State<InPersonPage> {
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(
-                                      data.name,
+                                      inper[index].name,
                                       style: const TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
@@ -98,7 +110,7 @@ class _InPersonPageState extends State<InPersonPage> {
                                         const SizedBox(width: 3),
                                         SizedBox(
                                             width: 170,
-                                            child: Text(data.desc,
+                                            child: Text(inper[index].desc,
                                                 style: const TextStyle(
                                                     color: Colors.black45,
                                                     fontSize: 15),
@@ -109,7 +121,7 @@ class _InPersonPageState extends State<InPersonPage> {
 
                                     // Number class
                                     Text(
-                                      data.num,
+                                      inper[index].num,
                                       style: const TextStyle(
                                           color: Colors.black, fontSize: 16),
                                     )
@@ -119,11 +131,11 @@ class _InPersonPageState extends State<InPersonPage> {
                             ],
                           ),
 
-                          // Icon
+                          // Icon Cross
                           Padding(
                             padding: const EdgeInsets.only(top: 15, right: 10),
                             child: Icon(
-                              data.icons,
+                              inper[index].icons,
                               color: Colors.grey,
                               size: 18,
                             ),
@@ -142,6 +154,7 @@ class _InPersonPageState extends State<InPersonPage> {
   }
 }
 
+// model
 class Person {
   String image;
   String name;
