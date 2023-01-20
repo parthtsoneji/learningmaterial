@@ -16,6 +16,7 @@ class _CoverPageState extends State<CoverPage> {
         height: 400,
         width: 200,
         color: Colors.blue,
+        child:  const Text("Hello Brother Suhani here Cold Fear in Frame here"),
       ),
       );
   }

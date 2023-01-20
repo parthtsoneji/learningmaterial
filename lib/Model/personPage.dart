@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/Model/main_screen.dart';
+import 'package:learningmaterial/Model/mainScreen.dart';
 
 class InPersonPage extends StatefulWidget {
   const InPersonPage({Key? key}) : super(key: key);
@@ -29,8 +29,6 @@ class _InPersonPageState extends State<InPersonPage> {
         icons: Icons.add_circle)
   ];
 
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -39,7 +37,7 @@ class _InPersonPageState extends State<InPersonPage> {
       children: [
         // ListView Builder
         Padding(
-          padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+          padding: const EdgeInsets.only(left: 20, right: 20),
           child: SizedBox(
             height: 500,
             child: ListView.builder(
@@ -53,16 +51,13 @@ class _InPersonPageState extends State<InPersonPage> {
                     setState(() {
                       MainPage.controller.add(true);
                     });
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(
-                    //       builder:  (context) => DetailPage(data: data)));
                   },
                   // Listview Design
                   child: Card(
-                    margin: const EdgeInsets.only(bottom: 15),
-                    elevation: 5.0,
+                    margin: const EdgeInsets.only(bottom: 8),
+                    elevation: 0.3,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),side: BorderSide(color: Colors.black.withOpacity(0.4))),
+                        borderRadius: BorderRadius.circular(5.0)),
 
                     //Row for image and column text
                     child: Padding(
@@ -77,29 +72,30 @@ class _InPersonPageState extends State<InPersonPage> {
                               //circle Avtar image
                               Padding(
                                 padding: const EdgeInsets.only(left: 15, top: 15),
-                                child: CircleAvatar(
-                                  backgroundImage: AssetImage(
-                                    inper[index].image,
-                                  ),
-                                  radius: 25,
-                                ),
+                                child: Container(
+                        height:60,
+                        width: 60,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),),
+                        child: Image.asset(inper[index].image,width: 60,height: 60,color: Colors.pinkAccent.withOpacity(0.6),colorBlendMode: BlendMode.color,))
                               ),
                               const SizedBox(width: 30),
 
                               //Headline Name
                               Padding(
-                                padding: const EdgeInsets.only(top: 5),
+                                padding: const EdgeInsets.only(top: 8),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
                                     Text(
                                       inper[index].name,
                                       style: const TextStyle(
-                                          fontSize: 18,
+                                          fontSize: 14,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.black),
                                     ),
+
+                                    const SizedBox(height: 7),
 
                                     // Check icon & Descriptions
                                     Row(
@@ -109,37 +105,40 @@ class _InPersonPageState extends State<InPersonPage> {
                                             color: Colors.black, size: 18),
                                         const SizedBox(width: 3),
                                         SizedBox(
-                                            width: 170,
+                                            width: 150,
                                             child: Text(inper[index].desc,
                                                 style: const TextStyle(
                                                     color: Colors.black45,
-                                                    fontSize: 15),
-                                                maxLines: 7,textAlign: TextAlign.justify,
+                                                    fontSize: 13.5),
+                                                maxLines: 10,textAlign: TextAlign.justify,
                                                 overflow: TextOverflow.ellipsis))
                                       ],
                                     ),
+
+                                    const SizedBox(height: 7),
 
                                     // Number class
                                     Text(
                                       inper[index].num,
                                       style: const TextStyle(
-                                          color: Colors.black, fontSize: 16),
+                                          color: Colors.black, fontSize: 13),
                                     )
                                   ],
                                 ),
                               )
                             ],
                           ),
-
-                          // Icon Cross
                           Padding(
-                            padding: const EdgeInsets.only(top: 15, right: 10),
-                            child: Icon(
-                              inper[index].icons,
-                              color: Colors.grey,
-                              size: 18,
+                            padding: const EdgeInsets.only(top: 10,right: 10),
+                            child: Align(
+                              alignment: Alignment.topRight,
+                              child: Icon(
+                                inper[index].icons,
+                                color: Colors.grey,
+                                size: 18,
+                              ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),

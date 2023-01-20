@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/Model/inperson.dart';
-import 'package:learningmaterial/Model/onlineperson.dart';
+import 'package:learningmaterial/Model/personPage.dart';
+import 'package:learningmaterial/Model/onlinePerson.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key}) : super(key: key);
@@ -32,7 +32,7 @@ class _AccountPageState extends State<AccountPage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
-                        Text("Tutorial",style: TextStyle(fontSize: 30,color: Colors.white),),
+                        Text("Tutoring",style: TextStyle(fontSize: 30,color: Colors.white),),
                         SizedBox(height: 2),
                         Text("Find tutorial from the best Providers",style: TextStyle(fontSize: 18,color: Colors.white),),
                       ],
@@ -40,7 +40,7 @@ class _AccountPageState extends State<AccountPage> {
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   child: TabBar(
@@ -49,33 +49,30 @@ class _AccountPageState extends State<AccountPage> {
                       tabs: [
                         Tab(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            mainAxisSize: MainAxisSize.min,
                             children: const [
                               Icon(Icons.video_camera_front_rounded,size: 20),
-                              SizedBox(width: 3),
-                              Text("online",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),)
+                              SizedBox(width: 2),
+                              Text("Online",style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold),)
                             ],
                           ),
                         ),
                         Tab(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            mainAxisSize: MainAxisSize.min,
                             children: const [
                               Icon(Icons.person,size: 20),
-                              SizedBox(width: 3),
-                              Text("Person",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),)
+                              SizedBox(width: 2),
+                              Text("In Person",style: TextStyle(fontSize: 13.31,fontWeight: FontWeight.bold),)
                             ],
                           ),
                         ),
                       ]),
                 ),
-                SizedBox(width: MediaQuery.of(context).size.width /2.7),
-                Row(
-                  children: const [
-                    Icon(Icons.filter_alt_rounded,color: Colors.grey,size: 25)
-                  ],
+                SizedBox(width: MediaQuery.of(context).size.width / 3.5),
+                const Padding(
+                  padding: EdgeInsets.only(right: 10,top: 10),
+                  child: Align(
+                      alignment: Alignment.topRight,
+                      child: Icon(Icons.filter_alt_rounded,color: Colors.grey,size: 25)),
                 )
               ],
             ),
