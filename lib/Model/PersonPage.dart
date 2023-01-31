@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/Model/mainScreen.dart';
+import 'package:learningmaterial/Model/MainScreen.dart';
 
 class InPersonPage extends StatefulWidget {
   const InPersonPage({Key? key}) : super(key: key);
-  static Person? dataList;
+  static List<Person>? dataList;
+  static int? index;
 
   @override
   State<InPersonPage> createState() => _InPersonPageState();
@@ -43,15 +44,17 @@ class _InPersonPageState extends State<InPersonPage> {
             child: ListView.builder(
               itemCount: inper.length,
               itemBuilder: (context,index) {
-                InPersonPage.dataList  = inper[index];
+                InPersonPage.dataList  = inper;
 
                 //return to Account Page
                 return GestureDetector(
                   onTap: () {
+                    InPersonPage.index = index;
                     setState(() {
                       MainPage.controller.add(true);
                     });
                   },
+
                   // Listview Design
                   child: Card(
                     margin: const EdgeInsets.only(bottom: 8),
@@ -71,14 +74,18 @@ class _InPersonPageState extends State<InPersonPage> {
                             children: [
                               //circle Avtar image
                               Padding(
-                                padding: const EdgeInsets.only(left: 15, top: 15),
+                                padding: const EdgeInsets.only(left: 10, top: 15),
                                 child: Container(
-                        height:60,
-                        width: 60,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),),
-                        child: Image.asset(inper[index].image,width: 60,height: 60,color: Colors.pinkAccent.withOpacity(0.6),colorBlendMode: BlendMode.color,))
-                              ),
-                              const SizedBox(width: 30),
+                                  width: 50,height: 50,
+                                  foregroundDecoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.pinkAccent.withOpacity(0.3),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(image: AssetImage(inper[index].image),
+                                          fit: BoxFit.fill)))),
+                                   const SizedBox(width: 30),
 
                               //Headline Name
                               Padding(
@@ -105,7 +112,7 @@ class _InPersonPageState extends State<InPersonPage> {
                                             color: Colors.black, size: 18),
                                         const SizedBox(width: 3),
                                         SizedBox(
-                                            width: 150,
+                                            width: MediaQuery.of(context).size.width/2.5,
                                             child: Text(inper[index].desc,
                                                 style: const TextStyle(
                                                     color: Colors.black45,

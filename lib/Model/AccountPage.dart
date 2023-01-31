@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/Model/personPage.dart';
-import 'package:learningmaterial/Model/onlinePerson.dart';
+import 'package:learningmaterial/Model/MainScreen.dart';
+import 'package:learningmaterial/Model/PersonPage.dart';
+import 'package:learningmaterial/Model/OnlinePerson.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key}) : super(key: key);
@@ -9,11 +10,13 @@ class AccountPage extends StatefulWidget {
   State<AccountPage> createState() => _AccountPageState();
 }
 class _AccountPageState extends State<AccountPage> {
+  final int  tabbarindex = 1;
   @override
   Widget build(BuildContext context) {
 
     return DefaultTabController(
       length: 2,
+      initialIndex: tabbarindex,
       child: Scaffold(
         body: Column(
           children: [
@@ -44,6 +47,9 @@ class _AccountPageState extends State<AccountPage> {
               children: [
                 Expanded(
                   child: TabBar(
+                    onTap: (value){
+                      MainPage.controller == false ? AccountPage(key: tabbarindex as Key?,) : AccountPage();
+                    },
                     labelColor: Colors.blue,
                       unselectedLabelColor: Colors.grey,
                       tabs: [

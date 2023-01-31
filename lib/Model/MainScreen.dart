@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/Model/accountPage.dart';
-import 'package:learningmaterial/Model/coverPage.dart';
-import 'package:learningmaterial/Model/detailPlatform.dart';
-import 'package:learningmaterial/Model/detailScreen.dart';
-import 'package:learningmaterial/Model/formPage.dart';
-import 'package:learningmaterial/Model/homePage.dart';
-import 'package:learningmaterial/Model/personPage.dart';
+import 'package:learningmaterial/Model/AccountPage.dart';
+import 'package:learningmaterial/Model/CoverPage.dart';
+import 'package:learningmaterial/Model/DetailPlatform.dart';
+import 'package:learningmaterial/Model/DetailScreen.dart';
+import 'package:learningmaterial/Model/FormPage.dart';
+import 'package:learningmaterial/Model/HomePage.dart';
+import 'package:learningmaterial/Model/PersonPage.dart';
 
 
 class MainPage extends StatefulWidget {
@@ -27,7 +27,7 @@ class _MainPageState extends State<MainPage> {
 
   // bool value false to true
   @override
-  void didUpdateWidget(covariant MainPage oldWidget) {
+  void didUpdateWidget(covariant MainPage newWidget) {
     MainPage.controller.stream.listen((event) {
       setState(() {
         temp = event;
@@ -39,7 +39,7 @@ class _MainPageState extends State<MainPage> {
         demo = eventt;
       });
     });
-    super.didUpdateWidget(oldWidget);
+    super.didUpdateWidget(newWidget);
   }
 
   @override
@@ -47,9 +47,9 @@ class _MainPageState extends State<MainPage> {
     // list bottom Navigation to change page
     final List<Widget> pageList = <Widget>[
       const HomePage(),
-      demo ? platformPage(main: FormPage.listwork!) : const FormPage(),
+      demo ? platformPage(main: FormPage.listWork!,index: FormPage.index!,) : const  FormPage(),
       const CoverPage(),
-      temp ? DetailPage(data: InPersonPage.dataList!) : const AccountPage()
+      temp ? DetailPage(data: InPersonPage.dataList!,index: InPersonPage.index!,) : const AccountPage()
     ];
     return Scaffold(
           body: pageList[index],

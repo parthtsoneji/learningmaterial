@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import "package:flutter_rating_bar/flutter_rating_bar.dart";
-import 'package:learningmaterial/Model/mainScreen.dart';
+import 'package:learningmaterial/Model/MainScreen.dart';
 
 class FormPage extends StatefulWidget {
   const FormPage({Key? key}) : super(key: key);
-  static Test? listwork;
-
+  static List<Test>? listWork;
+  static int? index;
   @override
   State<FormPage> createState() => _FormPageState();
 }
@@ -20,32 +20,48 @@ class _FormPageState extends State<FormPage> {
           rating: "4.5",
           payment: "FREE",
           decr:
-              "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s"),
-      Test(
+              "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s",
+          subjectname: ["Mathamatik","Physik","Deutsch","Chemie","Sachunterite","Biologie","Music"],
+          Icons: [ Icons.percent, Icons.manage_history, Icons.topic, Icons.developer_board, Icons.local_laundry_service,Icons.chair,Icons.keyboard_command_key],
+        detail: "Es un fet establert de forma evident que un lector es ditraura amb el contingut llegible duna oagina quan miri a la seva composicio",
+      ),
+          Test(
           tegline: "Bettermarks",
           image: "images/symball.png",
           rating: "1.5",
           payment: "PAID",
           decr:
-              "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s"),
+              "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s",
+          subjectname: ["Music","Biologie","Chemie","Deutsch","Mathamatik","Physik","Sachunterite"],
+          Icons: [ Icons.percent, Icons.manage_history, Icons.topic, Icons.developer_board, Icons.local_laundry_service,Icons.chair,Icons.keyboard_command_key],
+            detail: "Es un fet establert de forma evident que un lector es ditraura amb el contingut llegible duna oagina quan miri a la seva composicio",
+          ),
       Test(
           tegline: "Testimony",
           image: "images/symball.png",
           rating: "3.5",
           payment: "PAID",
           decr:
-              "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s"),
-      Test(
+              "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s",
+          subjectname: ["Sachunterite","Deutsch","Sachunterite","Physik","Mathamatik","Chemie"],
+          Icons: [ Icons.percent, Icons.manage_history, Icons.topic, Icons.developer_board, Icons.local_laundry_service,Icons.chair],        detail: "Es un fet establert de forma evident que un lector es ditraura amb el contingut llegible duna oagina quan miri a la seva composicio",
+      ),
+    Test(
           tegline: "Lacework",
           image: "images/anton.png",
           rating: "2.5",
           payment: "FREE",
           decr:
-              "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s")
+              "Lorem Lpsum is simply dummy text of te printing and typesetting industry. lorem lpsum has been the industry standard dummy text ever since the 1500s",
+          subjectname: ["Mathamatik","Physik","Deutsch","Chemie","Sachunterite","Biologie","Music"],
+        Icons: [ Icons.percent, Icons.manage_history, Icons.topic, Icons.developer_board, Icons.local_laundry_service,Icons.chair,Icons.keyboard_command_key],
+      detail: "Es un fet establert de forma evident que un lector es ditraura amb el contingut llegible duna oagina quan miri a la seva composicio",
+    ),
     ];
     return Scaffold(
         body: SafeArea(
       child: Stack(children: [
+
         //Background Image
         Image(
           image: const AssetImage('images/mainmoon.png'),
@@ -93,17 +109,18 @@ class _FormPageState extends State<FormPage> {
         Padding(
             padding: EdgeInsets.only(
                 top: MediaQuery.of(context).size.height / 2.8,
-                right: 20,
+                right: MediaQuery.of(context).size.width / 28,
                 left: 20),
             child: SizedBox(
               height: 500,
-              width: 400,
+              width: 1000,
               child: ListView.builder(
                   itemCount: list.length,
                   itemBuilder: (context, index) {
-                    FormPage.listwork = list[index];
+                    FormPage.listWork =  list;
                     return GestureDetector(
                       onTap: () {
+                        FormPage.index = index;
                         setState(() {
                           MainPage.formController.add(true);
                         });
@@ -144,6 +161,7 @@ class _FormPageState extends State<FormPage> {
                               children: [
                                 RatingBar.builder(
                                   initialRating: 3,minRating: 1,
+                                  ignoreGestures: true,
                                   itemSize: 15,direction: Axis.horizontal,
                                   allowHalfRating: true,itemCount: 5,
                                   itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
@@ -192,21 +210,17 @@ class _FormPageState extends State<FormPage> {
                           ),
 
                           const SizedBox(height: 5),
+
                           // description
                           Padding(
-                            padding: const EdgeInsets.only(top: 5, left: 5),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                    height: 55,
-                                    width: 300,
-                                    child: Text(list[index].decr,
-                                        style: const TextStyle(
-                                            color: Colors.black, fontSize: 12),
-                                        maxLines: 5)),
-                              ],
-                            ),
+                            padding: const EdgeInsets.only(top: 5, right: 20,left: 10),
+                            child: SizedBox(
+                                height: 55,
+                                width: MediaQuery.of(context).size.width,
+                                child: Text(list[index].decr,
+                                    style: const TextStyle(
+                                        color: Colors.black, fontSize: 12),
+                                    maxLines: 5)),
                           )
                         ]),
                       ),
@@ -224,11 +238,17 @@ class Test {
       required this.image,
       required this.rating,
       required this.payment,
-      required this.decr});
+      required this.decr,
+      required this.subjectname,
+      required this.Icons,
+      required this.detail});
 
   String tegline;
   String image;
   String rating;
   String payment;
   String decr;
+  List Icons;
+  List subjectname;
+  String detail;
 }
