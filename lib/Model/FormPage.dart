@@ -1,11 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:flutter_rating_bar/flutter_rating_bar.dart";
-import 'package:learningmaterial/Model/MainScreen.dart';
+import 'package:learningmaterial/Model/DetailPlatform.dart';
+
 
 class FormPage extends StatefulWidget {
   const FormPage({Key? key}) : super(key: key);
-  static List<Test>? listWork;
-  static int? index;
   @override
   State<FormPage> createState() => _FormPageState();
 }
@@ -13,7 +13,7 @@ class FormPage extends StatefulWidget {
 class _FormPageState extends State<FormPage> {
   @override
   Widget build(BuildContext context) {
-    List<Test> list = [
+    final List<Test> list = [
       Test(
           tegline: "Anton",
           image: "images/anton.png",
@@ -117,14 +117,13 @@ class _FormPageState extends State<FormPage> {
               child: ListView.builder(
                   itemCount: list.length,
                   itemBuilder: (context, index) {
-                    FormPage.listWork =  list;
                     return GestureDetector(
                       onTap: () {
-                        FormPage.index = index;
-                        setState(() {
-                          MainPage.formController.add(true);
-                        });
-                      },
+                        Navigator.
+                        push(context,MaterialPageRoute(builder: (context) => PlatFormPage(demo: list[index]),));
+                        },
+                             // MaterialPageRoute(builder: (context) =>
+                               //   PlatFormPage(demo: list[index])));
                       child: Card(
                         color: Colors.white,
                         elevation: 0.3,

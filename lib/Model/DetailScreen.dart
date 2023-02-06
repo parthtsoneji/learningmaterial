@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:learningmaterial/Model/PersonPage.dart';
-import 'package:learningmaterial/Model/MainScreen.dart';
 
 class DetailPage extends StatefulWidget {
-  final List<Person> data;
-  final int index;
-   const DetailPage({Key? key,required this.data, required this.index,}) : super(key: key);
+   const DetailPage({Key? key, required this.details,}) : super(key: key);
+   final Person details;
 
   @override
   // ignore: no_logic_in_create_state
-  State<DetailPage> createState() => _DetailPageState(index);
+  State<DetailPage> createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
-final int index;
 
-  _DetailPageState(this.index);
+
+  _DetailPageState();
   @override
   Widget build(BuildContext context) {
 
@@ -42,7 +40,7 @@ final int index;
                       ),
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          image: DecorationImage(image: AssetImage(widget.data[index].image),
+                          image: DecorationImage(image: AssetImage(widget.details.image),
                               fit: BoxFit.fill)
                       ),
                     )
@@ -51,7 +49,7 @@ final int index;
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      widget.data[index].name,
+                      widget.details.name,
                       style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -69,7 +67,7 @@ final int index;
                       const SizedBox(width: 3),
                       SizedBox(
                           width: MediaQuery.of(context).size.width / 1.4,
-                          child: Text(widget.data[index].desc,
+                          child: Text(widget.details.desc,
                               style: const TextStyle(
                                   color: Colors.black45, fontSize: 13),
                               maxLines: 2,
@@ -83,7 +81,7 @@ final int index;
                     children: [
                       Column(
                         children: [
-                          Icon(widget.data[index].icons,size: 20),
+                          Icon(widget.details.icons,size: 20),
                           const SizedBox(height: 8),
                           const Text("English",style: TextStyle(fontSize: 12),)
                         ],
@@ -101,7 +99,7 @@ final int index;
                       ),
                       Column(
                         children: [
-                          Text(widget.data[index].num,style: const TextStyle(fontSize: 12),),
+                          Text(widget.details.num,style: const TextStyle(fontSize: 12),),
                           const SizedBox(height: 8),
                           const Text("English",style: TextStyle(fontSize: 12),)
                         ],
@@ -113,7 +111,7 @@ final int index;
                   // Person Description
                   SizedBox(
                       width: MediaQuery.of(context).size.width / 1.3,
-                      child: Text(widget.data[index].desc,
+                      child: Text(widget.details.desc,
                           style: const TextStyle(color: Colors.black, fontSize: 15),
                           maxLines: 50,
                           textAlign: TextAlign.start,
@@ -134,7 +132,7 @@ final int index;
                         alignment: Alignment.bottomLeft,
                         child: Column(
                           children: [
-                            Icon(widget.data[index].icons),
+                            Icon(widget.details.icons),
                             const SizedBox(height: 8),
                             const Text("English")
                           ],
@@ -147,7 +145,7 @@ final int index;
               ),
               GestureDetector(
                 onTap: () {
-                  MainPage.controller.add(false);
+                  Navigator.pop(context);
                 },
                 child: const Align(
                   alignment: Alignment.topLeft,

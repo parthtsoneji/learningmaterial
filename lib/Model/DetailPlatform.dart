@@ -1,31 +1,24 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:flutter_rating_bar/flutter_rating_bar.dart";
-import 'package:learningmaterial/Model/MainScreen.dart';
 import 'FormPage.dart';
 
 // ignore: camel_case_types
-class platformPage extends StatefulWidget {
-  final List<Test> main;
-  final int index;
-
-  const platformPage({
-    Key? key,
-    required this.main,
-    required this.index,
+class PlatFormPage extends StatefulWidget {
+  const PlatFormPage({
+    Key? key, required this.demo,
   }) : super(key: key);
-
+  final Test demo;
   @override
   // ignore: no_logic_in_create_state
-  State<platformPage> createState() => _platformPageState(index);
+  State<PlatFormPage> createState() => _PlatFormPageState();
 }
 
 // ignore: camel_case_types
-class _platformPageState extends State<platformPage> {
-  final int index;
+class _PlatFormPageState extends State<PlatFormPage> {
+  _PlatFormPageState();
 
-  _platformPageState(this.index);
-
-  ScrollController _scrollController = new ScrollController();
+  final ScrollController _scrollController = ScrollController();
   bool iconcolor = false;
 
 
@@ -50,16 +43,12 @@ class _platformPageState extends State<platformPage> {
                   SliverAppBar(
                     leading: iconcolor == true ? IconButton(
                       onPressed: () {
-                        setState(() {
-                          MainPage.formController.add(false);
-                        });
+                        Navigator.pop(context);
                       },
                       icon: const Icon(Icons.arrow_back,color: Colors.grey,),
                     ) : IconButton(
                       onPressed: () {
-                        setState(() {
-                          MainPage.formController.add(false);
-                        });
+                        Navigator.pop(context);
                       },
                       icon: const Icon(Icons.arrow_back),
                     ),
@@ -69,10 +58,10 @@ class _platformPageState extends State<platformPage> {
                     backgroundColor: Colors.transparent,
                     expandedHeight: 150,
                     actions: [
-                      iconcolor == true ? Padding(
+                      iconcolor == true ? const Padding(
                         padding: EdgeInsets.only(right: 15),
                         child: Icon(Icons.share,color: Colors.grey)) :
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(right: 15),
                             child: Icon(Icons.share))
                     ],
@@ -97,7 +86,7 @@ class _platformPageState extends State<platformPage> {
                                 width: 52,
                                 decoration: const BoxDecoration(color: Colors.white),
                                 child: Image.asset(
-                                  widget.main[index].image,
+                                  widget.demo.image,
                                 ),
                               ),
                             ),
@@ -112,7 +101,7 @@ class _platformPageState extends State<platformPage> {
                                     const SizedBox(height: 5),
                                     Padding(
                                         padding: const EdgeInsets.only(top: 8),
-                                        child: Text(widget.main[index].tegline,
+                                        child: Text(widget.demo.tegline,
                                             style: const TextStyle(
                                                 fontSize: 19, fontWeight: FontWeight.bold))),
                                     const SizedBox(height: 10),
@@ -123,13 +112,13 @@ class _platformPageState extends State<platformPage> {
                                           height: 25,
                                           width: 50,
                                           decoration: BoxDecoration(
-                                              color: (widget.main[index].payment == "FREE")
+                                              color: (widget.demo.payment == "FREE")
                                                   ? Colors.blue
                                                   : Colors.deepPurpleAccent,
                                               borderRadius: BorderRadius.circular(8.0)),
                                           child: Center(
                                             child: Text(
-                                              widget.main[index].payment,
+                                              widget.demo.payment,
                                               style: const TextStyle(
                                                   color: Colors.white, fontSize: 13.5),
                                             ),
@@ -162,7 +151,7 @@ class _platformPageState extends State<platformPage> {
                                   mainAxisSpacing: 4),
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              itemCount: widget.main[index].subjectname.length,
+                              itemCount: widget.demo.subjectname.length,
                               itemBuilder: (context, i) {
                                 return Card(
                                   elevation: 0.3,
@@ -171,13 +160,13 @@ class _platformPageState extends State<platformPage> {
                                     children: [
                                       const SizedBox(width: 5),
                                       Icon(
-                                        widget.main[index].Icons[i],
+                                        widget.demo.Icons[i],
                                         size: 20,
                                         color: Colors.grey,
                                       ),
                                       SizedBox(width: MediaQuery.of(context).size.width / 40),
                                       Text(
-                                        widget.main[index].subjectname[i],
+                                        widget.demo.subjectname[i],
                                         style: const TextStyle(
                                             fontSize: 16, fontWeight: FontWeight.bold),
                                       )
@@ -206,7 +195,7 @@ class _platformPageState extends State<platformPage> {
                                 SizedBox(
                                     height: 35,
                                     width: MediaQuery.of(context).size.width,
-                                    child: Text(widget.main[index].detail,
+                                    child: Text(widget.demo.detail,
                                         style: const TextStyle(
                                             color: Colors.black, fontSize: 11),
                                         maxLines: 2)),
@@ -253,7 +242,7 @@ class _platformPageState extends State<platformPage> {
                                     Padding(
                                       padding: const EdgeInsets.only(left: 8),
                                       child: Text(
-                                        widget.main[index].rating,
+                                        widget.demo.rating,
                                         style: const TextStyle(
                                             fontSize: 15, color: Colors.black),
                                       ),

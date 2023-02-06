@@ -44,6 +44,14 @@ dev_dependencies:
   auto_size_text: ^3.0.0
   contained_tab_bar_view: ^0.8.0
   gestures: ^1.0.0
+  custom_navigator:
+  base_scaffold: ^1.2.1
+  dependencies:
+  custom_cupertino_navigation: ^0.0.2
+  shared_preferences: ^2.0.17
+
+
+
 
 
   # The "flutter_lints" package below contains a set of recommended lints to

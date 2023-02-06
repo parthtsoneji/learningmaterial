@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/Model/MainScreen.dart';
+import 'package:learningmaterial/Model/DetailScreen.dart';
 
 class InPersonPage extends StatefulWidget {
   const InPersonPage({Key? key}) : super(key: key);
-  static List<Person>? dataList;
-  static int? index;
-
   @override
   State<InPersonPage> createState() => _InPersonPageState();
 }
@@ -44,15 +41,11 @@ class _InPersonPageState extends State<InPersonPage> {
             child: ListView.builder(
               itemCount: inper.length,
               itemBuilder: (context,index) {
-                InPersonPage.dataList  = inper;
 
                 //return to Account Page
                 return GestureDetector(
                   onTap: () {
-                    InPersonPage.index = index;
-                    setState(() {
-                      MainPage.controller.add(true);
-                    });
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(details: inper[index],)));
                   },
 
                   // Listview Design
@@ -74,7 +67,7 @@ class _InPersonPageState extends State<InPersonPage> {
                             children: [
                               //circle Avtar image
                               Padding(
-                                padding: const EdgeInsets.only(left: 10, top: 15),
+                                padding: const EdgeInsets.only(left: 10 , top: 15),
                                 child: Container(
                                   width: 50,height: 50,
                                   foregroundDecoration: BoxDecoration(

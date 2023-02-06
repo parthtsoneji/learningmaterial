@@ -103,12 +103,12 @@ class _HomePageState extends State<HomePage> {
                   )),
 
               // Background image
-              Image(
-                image: const AssetImage('images/mainmoon.png'),
-                fit: BoxFit.cover,
-                height: MediaQuery.of(context).size.height / 2.5,
-                width: MediaQuery.of(context).size.width,
-              ),
+                Image(
+                  image: const AssetImage('images/mainmoon.png'),
+                  fit: BoxFit.cover,
+                  height: MediaQuery.of(context).size.height / 2.5,
+                  width: MediaQuery.of(context).size.width,
+                ),
 
               // Heading Text
               Positioned(
