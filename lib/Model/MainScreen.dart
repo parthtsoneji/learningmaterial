@@ -29,8 +29,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-
-    return LayoutBuilder(builder: (context, constraints) {
       return CupertinoTabScaffold(
         resizeToAvoidBottomInset: false,
         tabBar: CupertinoTabBar(items: const [
@@ -71,8 +69,6 @@ class _MainPageState extends State<MainPage> {
                   });
               }
             },
-          );
-        },
       );
   }
 }

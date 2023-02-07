@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:learningmaterial/Model/SignIn.dart';
+import 'package:learningmaterial/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
-
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -128,17 +130,24 @@ class _HomePageState extends State<HomePage> {
               Positioned(
                 left: MediaQuery.of(context).size.width / 1.28,
                 top: MediaQuery.of(context).size.height / 60,
-                child: Container(
-                  height: 60,
-                  width: 60,
-                  decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.blue,
-                      boxShadow: [
-                        BoxShadow(blurRadius: 15.0, color: Colors.white)
-                      ]),
-                  child: const Icon(
-                      Icons.person, size: 25, color: Colors.white),
+                child: GestureDetector(
+                  onTap: () async {
+                    var sharedpre = await SharedPreferences.getInstance();
+                    sharedpre.remove(LoginCheckState.KEYLOGIN);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginCheck(),));
+                  },
+                  child: Container(
+                    height: 60,
+                    width: 60,
+                    decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.blue,
+                        boxShadow: [
+                          BoxShadow(blurRadius: 15.0, color: Colors.white)
+                        ]),
+                    child: const Icon(
+                        Icons.person, size: 25, color: Colors.white),
+                  ),
                 ),
               ),
 

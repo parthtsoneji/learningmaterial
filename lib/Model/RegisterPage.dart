@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/Model/Main.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:learningmaterial/main.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -235,7 +234,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                         borderRadius: BorderRadius.circular(5.0))),
                                   onPressed: temp == true
                                       ? () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginCheck(),));
                                   } : null,
                                   child: const Text("Creating Account",style: TextStyle(color: Colors.white))
                               ),

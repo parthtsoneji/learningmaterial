@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:learningmaterial/Model/HomePage.dart';
-import 'package:learningmaterial/Model/Main.dart';
 import 'package:learningmaterial/Model/MainScreen.dart';
 import 'package:learningmaterial/Model/RegisterPage.dart';
+import 'package:learningmaterial/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignIn extends StatefulWidget {
@@ -160,7 +159,7 @@ class _SignInState extends State<SignIn> {
                               ),
                               onPressed: temp == true ? () async {
                                 var sharedpref = await SharedPreferences.getInstance();
-                                sharedpref.setBool(LoginCheckState.KEYLOGIN , true);
+                                sharedpref.setBool(LoginCheckState.KEYLOGIN, true);
                                 Navigator.push(context, MaterialPageRoute(builder: (context) => const MainPage(),));
                               } : null,
                               child: const Text("Sign In ",style: TextStyle(color: Colors.white))),
